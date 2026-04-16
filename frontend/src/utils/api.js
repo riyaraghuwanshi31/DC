@@ -1,0 +1,48 @@
+import axios from 'axios';
+
+const API_URL = process.env.REACT_APP_API_URL || 'http://localhost:5000/api';
+
+const api = axios.create({
+  baseURL: API_URL,
+  timeout: 10000,
+  headers: { 'Content-Type': 'application/json' },
+});
+
+// Products API
+export const getProducts = (params = {}) => api.get('/products', { params });
+export const getFeaturedProducts = () => api.get('/products/featured');
+export const getProduct = (id) => api.get(`/products/${id}`);
+export const createProduct = (data) => api.post('/products', data);
+export const updateProduct = (id, data) => api.put(`/products/${id}`, data);
+export const deleteProduct = (id) => api.delete(`/products/${id}`);
+
+// Categories API
+export const getCategories = () => api.get('/categories');
+
+// Orders API
+export const createOrder = (data) => api.post('/orders', data);
+export const getOrders = () => api.get('/orders');
+
+// WhatsApp order message builder
+export const buildWhatsAppMessage = (customerInfo, cartItems, total) => {
+  const WHATSAPP_NUMBER = process.env.REACT_APP_WHATSAPP_NUMBER || '919999999999';
+
+  let message = `🛒 *New Order from Dubey Creation*\n\n`;
+  message += `👤 *Customer Details*\n`;
+  message += `Name: ${customerInfo.name}\n`;
+  message += `Phone: ${customerInfo.phone}\n`;
+  message += `Address: ${customerInfo.address}\n\n`;
+  message += `📦 *Order Items*\n`;
+
+  cartItems.forEach((item, index) => {
+    message += `${index + 1}. ${item.name} x${item.quantity} — ₹${(item.price * item.quantity).toLocaleString('en-IN')}\n`;
+  });
+
+  message += `\n💰 *Total Amount: ₹${total.toLocaleString('en-IN')}*\n\n`;
+  message += `Please confirm my order. Thank you! 🙏`;
+
+  const encodedMessage = encodeURIComponent(message);
+  return `https://wa.me/${WHATSAPP_NUMBER}?text=${encodedMessage}`;
+};
+
+export default api;
