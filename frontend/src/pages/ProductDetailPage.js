@@ -3,7 +3,7 @@ import { useParams, Link } from 'react-router-dom';
 import { getProduct, getProducts } from '../utils/api';
 import { useCart } from '../context/CartContext';
 import ProductCard from '../components/common/ProductCard';
-import { ProductDetailSkeleton, ProductCardSkeleton } from '../components/common/Skeleton';
+import { ProductDetailSkeleton} from '../components/common/Skeleton';
 
 const ProductDetailPage = () => {
   const { id } = useParams();
