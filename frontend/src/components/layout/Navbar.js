@@ -44,12 +44,11 @@ const Navbar = () => {
 
   return (
     <header
-  className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-    scrolled || menuOpen
-      ? 'bg-dark-950/95 backdrop-blur-lg shadow-xl shadow-black/20 border-b border-dark-700'
-      : 'bg-transparent'
-  }`}
->
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled || menuOpen
+        ? 'bg-dark-950/95 backdrop-blur-lg shadow-xl shadow-black/20 border-b border-dark-700'
+        : 'bg-transparent'
+        }`}
+    >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
@@ -112,6 +111,7 @@ const Navbar = () => {
             )}
 
             {token ? (
+
               <button
                 onClick={() => {
                   logout();
@@ -121,13 +121,27 @@ const Navbar = () => {
               >
                 Logout
               </button>
+
             ) : (
-              <Link
-                to="/login"
-                className="hidden sm:flex items-center gap-1.5 text-primary-400 hover:text-white transition-colors px-3 py-2 rounded-lg hover:bg-dark-800 text-sm"
-              >
-                Login
-              </Link>
+
+              <div className="hidden sm:flex items-center gap-2">
+
+                <Link
+                  to="/login"
+                  className="text-primary-400 hover:text-white transition-colors px-3 py-2 rounded-lg hover:bg-dark-800 text-sm"
+                >
+                  Login
+                </Link>
+
+                <Link
+                  to="/signup"
+                  className="bg-primary-500 hover:bg-primary-600 text-white px-4 py-2 rounded-lg text-sm font-medium transition-colors"
+                >
+                  Signup
+                </Link>
+
+              </div>
+
             )}
 
             {/* Cart button */}
@@ -195,8 +209,38 @@ const Navbar = () => {
                   Admin Panel
                 </Link>
               )}
-
               {token ? (
+
+                <button
+                  onClick={() => {
+                    logout();
+                    window.location.reload();
+                  }}
+                  className="px-4 py-3 text-red-400 text-left hover:bg-dark-800 rounded-xl"
+                >
+                  Logout
+                </button>
+
+              ) : (
+
+                <>
+                  <Link
+                    to="/login"
+                    className="px-4 py-3 text-primary-400 hover:bg-dark-800 rounded-xl"
+                  >
+                    Login
+                  </Link>
+
+                  <Link
+                    to="/signup"
+                    className="px-4 py-3 text-white hover:bg-dark-800 rounded-xl"
+                  >
+                    Signup
+                  </Link>
+                </>
+
+              )}
+              {/* {token ? (
                 <button
                   onClick={() => {
                     logout();
@@ -213,7 +257,7 @@ const Navbar = () => {
                 >
                   Login
                 </Link>
-              )}
+              )} */}
             </nav>
           </div>
         )}

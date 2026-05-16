@@ -8,6 +8,17 @@ const api = axios.create({
   headers: { 'Content-Type': 'application/json' },
 });
 
+// Attach token automatically
+api.interceptors.request.use((config) => {
+  const token = localStorage.getItem('token');
+
+  if (token) {
+    config.headers.Authorization = `Bearer ${token}`;
+  }
+
+  return config;
+});
+
 // Products API
 export const getProducts = (params = {}) => api.get('/products', { params });
 export const getFeaturedProducts = () => api.get('/products/featured');

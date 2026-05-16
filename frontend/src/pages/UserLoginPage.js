@@ -1,7 +1,8 @@
 import React, { useState } from "react";
-import axios from "axios";
+import api from "../utils/api";
 import { setAuth } from "../utils/auth";
 import { useNavigate } from "react-router-dom";
+import { Link } from 'react-router-dom';
 
 const LoginPage = () => {
   const [email, setEmail] = useState("");
@@ -12,13 +13,15 @@ const LoginPage = () => {
     e.preventDefault();
 
     try {
-      const res = await axios.post("https://dc-zbw5.onrender.com/api/auth/login", {
+      const res = await api.post("/auth/login", {
         email,
         password,
       });
-
+      
       setAuth(res.data);
+     
       navigate("/");
+
     } catch (err) {
       alert("Invalid credentials");
     }
@@ -27,15 +30,15 @@ const LoginPage = () => {
   return (
     <div className="min-h-screen flex items-center justify-center bg-dark-950 px-4">
       <div className="w-full max-w-md bg-dark-900 border border-dark-700 rounded-2xl shadow-xl p-8">
-        
+
         {/* Title */}
         <h2 className="text-2xl font-bold text-white text-center mb-6">
-          Admin Login
+          Login
         </h2>
 
         {/* Form */}
         <form onSubmit={handleLogin} className="space-y-4">
-          
+
           {/* Email */}
           <div>
             <label className="block text-sm text-dark-300 mb-1">
@@ -75,8 +78,15 @@ const LoginPage = () => {
 
         {/* Footer */}
         <p className="text-center text-dark-400 text-sm mt-6">
-          Only admins are allowed to login
+          Don&apos;t have an account?{" "}
+          <Link
+            to="/signup"
+            className="text-blue-400 hover:text-blue-300 font-medium"
+          >
+            Sign Up
+          </Link>
         </p>
+
       </div>
     </div>
   );

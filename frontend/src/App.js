@@ -10,7 +10,10 @@ import ProductDetailPage from './pages/ProductDetailPage';
 import CartPage from './pages/CartPage';
 import CheckoutPage from './pages/CheckoutPage';
 import AdminPage from './pages/AdminPage';
-import LoginPage from './pages/LoginPage';
+import UserLoginPage from './pages/UserLoginPage';
+import AdminRoute from "./components/AdminRoute";
+import AdminLoginPage from './pages/AdminLoginPage';
+import SignupPage from './pages/SignupPage';
 
 function App() {
   return (
@@ -25,9 +28,23 @@ function App() {
               <Route path="/products/:id" element={<ProductDetailPage />} />
               <Route path="/cart" element={<CartPage />} />
               <Route path="/checkout" element={<CheckoutPage />} />
+              <Route path="/signup" element={<SignupPage />} />
 
-              <Route path="/login" element={<LoginPage />} />
-              <Route path="/admin" element={<AdminPage />} />
+              {/* <Route path="/login" element={<LoginPage />} /> */}
+
+              <Route path="/login" element={<UserLoginPage />} />
+
+              <Route path="/admin-login" element={<AdminLoginPage />} />
+
+              <Route
+                path="/admin"
+                element={
+                  <AdminRoute>
+                    <AdminPage />
+                  </AdminRoute>
+                }
+              />
+
               {/* 404 */}
               <Route path="*" element={
                 <div className="min-h-screen flex flex-col items-center justify-center text-center px-4">
