@@ -14,7 +14,7 @@ app.use(
   cors({
     origin: [
       "http://localhost:3000",
-      "https://dc-blush.vercel.app/"
+      "https://dc-blush.vercel.app"
     ],
     credentials: true,
   })
