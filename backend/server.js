@@ -15,8 +15,6 @@ const app = express();
 
 // Middleware
 
-const cors = require('cors');
-
 // Allow all origins for testing (then restrict later)
 app.use(cors({
   origin: ['https://dc-p5v8fx46t-riya-rahuwanshis-projects.vercel.app', 'http://localhost:3000'],
