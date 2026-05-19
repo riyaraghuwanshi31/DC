@@ -1,7 +1,8 @@
 import axios from 'axios';
 
-const API_URL = process.env.REACT_APP_API_URL || 'https://dc-zbw5.onrender.com/api';
+// const API_URL = process.env.REACT_APP_API_URL || 'https://dc-zbw5.onrender.com/api';
 
+const API_URL = 'https://dc-zbw5.onrender.com/api';
 
 console.log('API URL:', API_URL);
 
