@@ -57,7 +57,7 @@ const Navbar = () => {
               D
             </div>
             <span className="font-display font-bold text-xl text-white hidden sm:block">
-              Dubey <span className="text-primary-400">Creation</span>
+              Dubey <span className="text-primary-400">Creations</span>
             </span>
           </Link>
 
