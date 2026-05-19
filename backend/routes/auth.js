@@ -6,6 +6,18 @@ const { protect } = require('../middleware/auth');
 
 const router = express.Router();
 
+// ==========================
+// TEST ROUTE - Check if auth route is working
+// ==========================
+router.get('/test', (req, res) => {
+  res.json({ 
+    message: 'Auth route is working!', 
+    timestamp: new Date().toISOString(),
+    routes: ['POST /register', 'POST /login', 'GET /me', 'GET /test']
+  });
+});
+
+
 
 // ==========================
 // REGISTER
