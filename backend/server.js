@@ -9,16 +9,33 @@ dotenv.config();
 
 const app = express();
 
+
+
+
+
 // Middleware
-app.use(
-  cors({
-    origin: [
-      "http://localhost:3000",
-      "https://dc-blush.vercel.app"
-    ],
-    credentials: true,
-  })
-);
+
+// Allow all origins for testing (then restrict later)
+app.use(cors({
+  origin: ['https://dc-p5v8fx46t-riya-rahuwanshis-projects.vercel.app', 'http://localhost:3000'],
+  credentials: true,
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+  allowedHeaders: ['Content-Type', 'Authorization']
+}));
+
+// Or for quick testing, allow all:
+// app.use(cors());
+
+
+// app.use(
+//   cors({
+//     origin: [
+//       "http://localhost:3000",
+//       "https://dc-blush.vercel.app"
+//     ],
+//     credentials: true,
+//   })
+// );
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use('/api/auth', authRoutes);
