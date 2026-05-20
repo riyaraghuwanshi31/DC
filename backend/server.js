@@ -29,8 +29,15 @@ const app = express();
 // }));
 
 
-app.use(cors());  // Allow all origins
+// app.use(cors());  // Allow all origins
 
+
+app.use(cors({
+  origin: [
+    'https://dc-mu-five.vercel.app'
+  ],
+  credentials: true
+}));
 
 // Or for quick testing, allow all:
 // app.use(cors());
