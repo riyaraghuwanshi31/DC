@@ -17,7 +17,7 @@ const app = express();
 
 // Allow all origins for testing (then restrict later)
 app.use(cors({
-  origin: ['https://dc-333onapoi-riya-raghuwanshis-projects.vercel.app/', 'http://localhost:3000'],
+  origin: ['https://dc-mu-five.vercel.app/', 'http://localhost:3000'],
   credentials: true,
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
   allowedHeaders: ['Content-Type', 'Authorization']
