@@ -70,7 +70,7 @@ app.use((err, req, res, next) => {
 
 // Connect to MongoDB
 const PORT = process.env.PORT || 5000;
-const MONGODB_URI = process.env.MONGODB_URI || 'mongodb://localhost:27017/dubey-creation';
+const MONGODB_URI = process.env.MONGODB_URI || 'mongodb+srv://riya0831_db_user:Riya123@cluster0.i47ax1x.mongodb.net/dubey-creation?retryWrites=true&w=majority&appName=Cluster0';
 
 mongoose
   .connect(MONGODB_URI)
