@@ -190,6 +190,7 @@ const HomePage = () => {
               <Link to="/products" className="btn-primary px-8 py-3.5">Start Shopping</Link>
               <a
                 href="https://wa.me/918770726077"
+
                 target="_blank"
                 rel="noreferrer"
                 className="flex items-center gap-2 bg-green-600 hover:bg-green-500 text-white font-semibold px-8 py-3.5 rounded-xl transition-colors"
