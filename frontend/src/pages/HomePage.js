@@ -14,10 +14,10 @@ const CATEGORIES = [
 ];
 
 const STATS = [
-  { label: 'Products', value: '100+' },
-  { label: 'Happy Customers', value: '5000+' },
+  { label: 'Products', value: '11+' },
+  { label: 'Happy Customers', value: '39+' },
   { label: 'Categories', value: '6+' },
-  { label: 'Orders via WhatsApp', value: '2000+' },
+  { label: 'Orders via WhatsApp', value: '72+' },
 ];
 
 const HomePage = () => {
@@ -64,8 +64,8 @@ const HomePage = () => {
 
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-32 text-center">
           <div className="inline-flex items-center gap-2 bg-primary-500/10 border border-primary-500/20 rounded-full px-4 py-1.5 mb-6 animate-fade-in">
-            <span className="w-2 h-2 bg-primary-400 rounded-full animate-pulse" />
-            <span className="text-primary-400 text-sm font-medium">Orders via WhatsApp · Fast & Easy</span>
+            <span className="w-1 h-1 bg-primary-400 rounded-full animate-pulse" />
+            <span className="text-primary-400 text-sm font-medium">Order Online - Fast & Easy</span>
           </div>
 
           <h1 className="font-display text-5xl sm:text-6xl md:text-7xl font-bold text-white leading-tight mb-6 animate-slide-up">
@@ -75,7 +75,7 @@ const HomePage = () => {
 
           <p className="text-dark-300 text-lg sm:text-xl max-w-2xl mx-auto mb-10 leading-relaxed animate-fade-in">
             Explore the latest TVs, laptops, earbuds, smartwatches, and more.
-            Place your order directly via <span className="text-green-400 font-semibold">WhatsApp</span> — no payment gateway, no hassle.
+            Place your order directly via <span className="text-green-400 font-semibold">WhatsApp</span> — direct connection, no hassle.
           </p>
 
           {/* Search bar */}
@@ -189,7 +189,8 @@ const HomePage = () => {
             <div className="flex flex-wrap items-center justify-center gap-4">
               <Link to="/products" className="btn-primary px-8 py-3.5">Start Shopping</Link>
               <a
-                href="https://wa.me/919301394684"
+                href="https://wa.me/918770726077"
+
                 target="_blank"
                 rel="noreferrer"
                 className="flex items-center gap-2 bg-green-600 hover:bg-green-500 text-white font-semibold px-8 py-3.5 rounded-xl transition-colors"

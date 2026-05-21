@@ -40,9 +40,9 @@ export const getOrders = () => api.get('/orders');
 
 // WhatsApp order message builder
 export const buildWhatsAppMessage = (customerInfo, cartItems, total) => {
-  const WHATSAPP_NUMBER = process.env.REACT_APP_WHATSAPP_NUMBER || '919999999999';
+  const WHATSAPP_NUMBER = process.env.REACT_APP_WHATSAPP_NUMBER || '918770726077';
 
-  let message = `🛒 *New Order from Dubey Creation*\n\n`;
+  let message = `🛒 *New Order from Dubey Creations*\n\n`;
   message += `👤 *Customer Details*\n`;
   message += `Name: ${customerInfo.name}\n`;
   message += `Phone: ${customerInfo.phone}\n`;
