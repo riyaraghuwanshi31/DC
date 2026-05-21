@@ -6,7 +6,7 @@ const CATEGORIES = ['TVs', 'Earbuds', 'Batteries', 'Laptops', 'Smartwatches', 'A
 
 const emptyForm = {
   name: '', description: '', price: '', originalPrice: '', category: 'TVs',
-  brand: 'Dubey Creation', image: '', stock: '', isFeatured: false, isNew: false,
+  brand: 'Dubey Creations', image: '', stock: '', isFeatured: false, isNew: false,
 };
 
 const AdminPage = () => {

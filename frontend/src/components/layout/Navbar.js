@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
 import { useCart } from '../../context/CartContext';
 import { getRole, logout } from "../../utils/auth";
+import logo from "../../assets/DC Logo WithoutBG.png";
+
 
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
@@ -52,14 +54,21 @@ const Navbar = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
-          <Link to="/" className="flex items-center gap-2 group">
+          <Link to="/" className="flex items-center">
+            <img
+              src={logo}
+              alt="Dubey Creations Logo"
+              className="h-12 w-auto object-contain"
+            />
+          </Link>
+          {/* <Link to="/" className="flex items-center gap-2 group">
             <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-primary-500 to-orange-400 flex items-center justify-center font-display font-bold text-white text-lg shadow-lg shadow-primary-500/30 group-hover:shadow-primary-500/50 transition-all">
               D
             </div>
             <span className="font-display font-bold text-xl text-white hidden sm:block">
               Dubey <span className="text-primary-400">Creations</span>
             </span>
-          </Link>
+          </Link> */}
 
           {/* Desktop Nav */}
           <nav className="hidden lg:flex items-center gap-1">
@@ -103,10 +112,10 @@ const Navbar = () => {
                 to="/admin"
                 className="hidden sm:flex items-center gap-1.5 text-dark-400 hover:text-white transition-colors px-3 py-2 rounded-lg hover:bg-dark-800 text-sm"
               >
-                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                {/* <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0..." />
-                </svg>
-                Admin
+                </svg> */}
+                Admin Portel
               </Link>
             )}
 

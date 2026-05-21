@@ -1,4 +1,4 @@
-# 🛒 Dubey Creation — MERN E-Commerce Platform
+# 🛒 Dubey Creations — MERN E-Commerce Platform
 
 A full-stack e-commerce website for selling premium electronic gadgets. Orders are placed directly via **WhatsApp** — no payment gateway required.
 
@@ -7,7 +7,7 @@ A full-stack e-commerce website for selling premium electronic gadgets. Orders a
 ## 📁 Folder Structure
 
 ```
-dubey-creation/
+dubey-creations/
 ├── backend/                    # Node.js + Express + MongoDB
 │   ├── data/
 │   │   └── seed.js            # Sample product seeder
@@ -63,6 +63,7 @@ dubey-creation/
 ## ⚡ Quick Setup (Step-by-Step)
 
 ### Prerequisites
+
 - **Node.js** v18+ → https://nodejs.org
 - **MongoDB** (local) → https://www.mongodb.com/try/download/community  
   OR **MongoDB Atlas** (free cloud) → https://cloud.mongodb.com
@@ -74,10 +75,10 @@ dubey-creation/
 ```bash
 # If using git:
 git clone <your-repo-url>
-cd dubey-creation
+cd dubey-creations
 
 # Or just navigate to the project folder:
-cd dubey-creation
+cd dubey-creations
 ```
 
 ---
@@ -90,11 +91,13 @@ npm install
 ```
 
 **Create your `.env` file:**
+
 ```bash
 cp .env.example .env
 ```
 
 Edit `backend/.env`:
+
 ```env
 PORT=5000
 MONGODB_URI=mongodb://localhost:27017/dubey-creation
@@ -104,11 +107,13 @@ WHATSAPP_NUMBER=919999999999    # ← Replace with your WhatsApp number (with co
 ```
 
 **Seed sample products:**
+
 ```bash
 npm run seed
 ```
 
 You should see:
+
 ```
 ✅ Connected to MongoDB
 🗑️  Cleared existing products
@@ -117,6 +122,7 @@ You should see:
 ```
 
 **Start the backend server:**
+
 ```bash
 npm run dev
 # Server running on http://localhost:5000
@@ -134,17 +140,20 @@ npm install
 ```
 
 **Create your `.env` file:**
+
 ```bash
 cp .env.example .env
 ```
 
 Edit `frontend/.env`:
+
 ```env
 REACT_APP_API_URL=http://localhost:5000/api
 REACT_APP_WHATSAPP_NUMBER=919999999999    # ← Same number as backend
 ```
 
 **Start the frontend:**
+
 ```bash
 npm start
 # Opens http://localhost:3000
@@ -160,19 +169,19 @@ Visit: **http://localhost:3000**
 
 ## 🔑 Key Features
 
-| Feature | Details |
-|---|---|
-| 🏠 Homepage | Hero banner, featured products, categories grid |
-| 🛍️ Product Listing | Filter by category, sort, search, pagination |
-| 📦 Product Detail | Image gallery, specs table, related products |
-| 🛒 Cart | Add/remove/update quantity, persistent (localStorage) |
-| 📋 Checkout | Customer form → WhatsApp order message |
-| 💬 WhatsApp Order | Pre-filled message with full order details |
-| ⚙️ Admin Panel | Add products, delete products, filter view |
-| 🔍 Search | Real-time search across name, description, brand |
-| 📱 Responsive | Mobile-first, works on all screen sizes |
-| ⚡ Loading States | Skeleton screens on all data fetches |
-| 🔔 Toast Notifications | Add to cart, errors, success messages |
+| Feature                | Details                                               |
+| ---------------------- | ----------------------------------------------------- |
+| 🏠 Homepage            | Hero banner, featured products, categories grid       |
+| 🛍️ Product Listing     | Filter by category, sort, search, pagination          |
+| 📦 Product Detail      | Image gallery, specs table, related products          |
+| 🛒 Cart                | Add/remove/update quantity, persistent (localStorage) |
+| 📋 Checkout            | Customer form → WhatsApp order message                |
+| 💬 WhatsApp Order      | Pre-filled message with full order details            |
+| ⚙️ Admin Panel         | Add products, delete products, filter view            |
+| 🔍 Search              | Real-time search across name, description, brand      |
+| 📱 Responsive          | Mobile-first, works on all screen sizes               |
+| ⚡ Loading States      | Skeleton screens on all data fetches                  |
+| 🔔 Toast Notifications | Add to cart, errors, success messages                 |
 
 ---
 
@@ -185,7 +194,7 @@ Visit: **http://localhost:3000**
 5. WhatsApp opens with this pre-filled message:
 
 ```
-🛒 New Order from Dubey Creation
+🛒 New Order from Dubey Creations
 
 👤 Customer Details
 Name: Rahul Dubey
@@ -208,42 +217,45 @@ Please confirm my order. Thank you! 🙏
 ## 🌐 API Endpoints
 
 ### Products
-| Method | Endpoint | Description |
-|---|---|---|
-| GET | `/api/products` | Get all products (supports `?category=`, `?search=`, `?sort=`, `?page=`, `?limit=`) |
-| GET | `/api/products/featured` | Get featured products |
-| GET | `/api/products/:id` | Get single product |
-| POST | `/api/products` | Create product (Admin) |
-| PUT | `/api/products/:id` | Update product (Admin) |
-| DELETE | `/api/products/:id` | Delete product (Admin) |
+
+| Method | Endpoint                 | Description                                                                         |
+| ------ | ------------------------ | ----------------------------------------------------------------------------------- |
+| GET    | `/api/products`          | Get all products (supports `?category=`, `?search=`, `?sort=`, `?page=`, `?limit=`) |
+| GET    | `/api/products/featured` | Get featured products                                                               |
+| GET    | `/api/products/:id`      | Get single product                                                                  |
+| POST   | `/api/products`          | Create product (Admin)                                                              |
+| PUT    | `/api/products/:id`      | Update product (Admin)                                                              |
+| DELETE | `/api/products/:id`      | Delete product (Admin)                                                              |
 
 ### Categories
-| Method | Endpoint | Description |
-|---|---|---|
-| GET | `/api/categories` | Get all categories with counts |
+
+| Method | Endpoint          | Description                    |
+| ------ | ----------------- | ------------------------------ |
+| GET    | `/api/categories` | Get all categories with counts |
 
 ### Orders
-| Method | Endpoint | Description |
-|---|---|---|
-| POST | `/api/orders` | Create new order |
-| GET | `/api/orders` | Get all orders (Admin) |
-| GET | `/api/orders/:id` | Get single order |
-| PATCH | `/api/orders/:id/status` | Update order status |
+
+| Method | Endpoint                 | Description            |
+| ------ | ------------------------ | ---------------------- |
+| POST   | `/api/orders`            | Create new order       |
+| GET    | `/api/orders`            | Get all orders (Admin) |
+| GET    | `/api/orders/:id`        | Get single order       |
+| PATCH  | `/api/orders/:id/status` | Update order status    |
 
 ---
 
 ## 🏗️ Tech Stack
 
-| Layer | Technology |
-|---|---|
-| Frontend | React 18, React Router v6 |
-| Styling | Tailwind CSS |
-| HTTP Client | Axios |
-| State | React Context + useReducer |
-| Notifications | react-hot-toast |
-| Backend | Node.js, Express.js |
-| Database | MongoDB + Mongoose |
-| Dev Tool | nodemon, concurrently |
+| Layer         | Technology                 |
+| ------------- | -------------------------- |
+| Frontend      | React 18, React Router v6  |
+| Styling       | Tailwind CSS               |
+| HTTP Client   | Axios                      |
+| State         | React Context + useReducer |
+| Notifications | react-hot-toast            |
+| Backend       | Node.js, Express.js        |
+| Database      | MongoDB + Mongoose         |
+| Dev Tool      | nodemon, concurrently      |
 
 ---
 
@@ -260,10 +272,12 @@ npm run dev          # starts both frontend & backend concurrently
 ## ☁️ Deploy to Production
 
 ### Backend (Railway / Render / Heroku):
+
 1. Push backend folder
 2. Set environment variables: `MONGODB_URI`, `PORT`, `WHATSAPP_NUMBER`
 
 ### Frontend (Vercel / Netlify):
+
 1. Push frontend folder
 2. Set build command: `npm run build`
 3. Set env variable: `REACT_APP_API_URL=https://your-backend-url.com/api`
@@ -274,6 +288,7 @@ npm run dev          # starts both frontend & backend concurrently
 ## 📋 Sample Product Categories & Count
 
 After seeding:
+
 - **TVs** — 2 products
 - **Earbuds** — 2 products
 - **Batteries** — 2 products
@@ -288,14 +303,18 @@ Total: **12 sample products** with realistic specs, prices, and images.
 ## 🔧 Customization
 
 ### Change WhatsApp Number:
+
 Update in both:
+
 - `backend/.env` → `WHATSAPP_NUMBER=91XXXXXXXXXX`
 - `frontend/.env` → `REACT_APP_WHATSAPP_NUMBER=91XXXXXXXXXX`
 
 ### Change Brand Name:
-Search and replace `Dubey Creation` across all files.
+
+Search and replace `Dubey Creations` across all files.
 
 ### Add More Categories:
+
 Update the `enum` array in `backend/models/Product.js` and the `CATEGORIES` array in frontend pages.
 
 ---
@@ -304,4 +323,4 @@ Update the `enum` array in `backend/models/Product.js` and the `CATEGORIES` arra
 
 For help, reach out via WhatsApp or raise an issue on GitHub.
 
-**Built with ❤️ for Dubey Creation**
+**Built with ❤️ for Dubey Creations**

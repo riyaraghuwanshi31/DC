@@ -46,7 +46,7 @@ const productSchema = new mongoose.Schema(
     },
     brand: {
       type: String,
-      default: 'Dubey Creation',
+      default: 'Dubey Creations',
     },
     image: {
       type: String,
