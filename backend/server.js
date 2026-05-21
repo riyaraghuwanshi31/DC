@@ -16,11 +16,27 @@ const app = express();
 // Middleware
 
 // Allow all origins for testing (then restrict later)
+// app.use(cors({
+//   origin: [
+//   'https://dc-mu-five.vercel.app',
+//   'https://dc-git-main-riya-raghuwanshis-projects.vercel.app', 
+//   'https://dc-cry6jf77y-riya-raghuwanshis-projects.vercel.app',
+//   'http://localhost:3000'
+// ],
+//   credentials: true,
+//   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+//   allowedHeaders: ['Content-Type', 'Authorization']
+// }));
+
+
+// app.use(cors());  // Allow all origins
+
+
 app.use(cors({
-  origin: ['https://dc-p5v8fx46t-riya-rahuwanshis-projects.vercel.app', 'http://localhost:3000'],
-  credentials: true,
-  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
-  allowedHeaders: ['Content-Type', 'Authorization']
+  origin: [
+    'https://dc-mu-five.vercel.app'
+  ],
+  credentials: true
 }));
 
 // Or for quick testing, allow all:
@@ -61,7 +77,7 @@ app.use((err, req, res, next) => {
 
 // Connect to MongoDB
 const PORT = process.env.PORT || 5000;
-const MONGODB_URI = process.env.MONGODB_URI || 'mongodb://localhost:27017/dubey-creation';
+const MONGODB_URI = process.env.MONGODB_URI || 'mongodb+srv://riya0831_db_user:Riya123@cluster0.i47ax1x.mongodb.net/dubey-creation?retryWrites=true&w=majority&appName=Cluster0';
 
 mongoose
   .connect(MONGODB_URI)
