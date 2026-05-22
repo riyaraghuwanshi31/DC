@@ -8,7 +8,7 @@ const API_URL = process.env.REACT_APP_API_URL || 'https://dc-ecoz.onrender.com/a
 
 const api = axios.create({
   baseURL: API_URL,
-  timeout: 10000,
+  timeout: 60000,
   headers: { 'Content-Type': 'application/json' },
 });
 
