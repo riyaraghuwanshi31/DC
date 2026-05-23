@@ -50,7 +50,7 @@ const AdminLoginPage = () => {
 
                 {/* Title */}
                 <h2 className="text-2xl font-bold text-white text-center mb-2">
-                    Admin Portal
+                    Admin Panel
                 </h2>
 
                 <p className="text-center text-dark-400 mb-6">
