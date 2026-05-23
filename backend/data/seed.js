@@ -291,37 +291,73 @@ const sampleProducts = [
   },
 ];
 
+
+
 async function createAdmin() {
   try {
-    const existingAdmin = await User.findOne({ email: "admin@gmail.com" });
-    // const existingAdmin = await User.findOne({ email: "Dubeycreations02@gmail.com" });
+    const hashedPassword = await bcrypt.hash("MacDCPass@0702", 10);
+
+    const existingAdmin = await User.findOne({
+      email: "Dubeycreations02@gmail.com",
+    });
 
     if (existingAdmin) {
-      console.log('⚠️ Admin already exists');
-      return;
+      // Update password if admin already exists
+      existingAdmin.password = hashedPassword;
+      await existingAdmin.save();
+
+      console.log("✅ Admin password updated");
+    } else {
+      // Create new admin if not exists
+      await User.create({
+        name: "Admin",
+        email: "Dubeycreations02@gmail.com",
+        password: hashedPassword,
+        role: "admin",
+      });
+
+      console.log("✅ Admin created");
     }
-
-    const hashedPassword = await bcrypt.hash("admin123", 10);
-    // const hashedPassword = await bcrypt.hash("MacDC702", 10);
-
-    await User.create({
-      name: "Admin",
-      email: "admin@gmail.com",
-      password: hashedPassword,
-      role: "admin",
-    });
-    // await User.create({
-    //   name: "Admin",
-    //   email: "Dubeycreations02@gmail.com",
-    //   password: hashedPassword,
-    //   role: "admin",
-    // });
-
-    console.log('✅ Admin created');
   } catch (error) {
-    console.error('❌ Error creating admin:', error);
+    console.error("❌ Error creating/updating admin:", error);
   }
 }
+
+
+
+// async function createAdmin() {
+
+  
+//   try {
+//     const existingAdmin = await User.findOne({ email: "Dubeycreations02@gmail.com" });
+//     // const existingAdmin = await User.findOne({ email: "Dubeycreations02@gmail.com" });
+
+//     if (existingAdmin) {
+//       console.log('⚠️ Admin already exists');
+//       return;
+//     }
+
+//     const hashedPassword = await bcrypt.hash("MacDCPass@0702", 10);
+//     // const hashedPassword = await bcrypt.hash("MacDC702", 10);
+
+//     await User.create({
+//       name: "Admin",
+//       email: "Dubeycreations02@gmail.com",
+//       password: hashedPassword,
+//       role: "admin",
+//     });
+//     // await User.create({
+//     //   name: "Admin",
+//     //   email: "Dubeycreations02@gmail.com",
+//     //   password: hashedPassword,
+//     //   role: "admin",
+//     // });
+
+//     console.log('✅ Admin created');
+//   } catch (error) {
+//     console.error('❌ Error creating admin:', error);
+//   }
+// }
 
 async function seedDatabase() {
   try {
