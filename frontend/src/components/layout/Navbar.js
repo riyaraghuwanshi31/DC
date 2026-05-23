@@ -115,7 +115,7 @@ const Navbar = () => {
                 {/* <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0..." />
                 </svg> */}
-                Admin Portel
+                Admin Panel
               </Link>
             )}
 
