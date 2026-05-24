@@ -38,9 +38,9 @@ const SignupPage = () => {
   return (
     <div className="min-h-screen flex items-center justify-center bg-dark-950 px-4">
 
-      <div className="w-full max-w-md bg-dark-900 border border-dark-700 rounded-2xl shadow-xl p-8">
+      <div className="w-full max-w-md bg-light-100 border border-light-300 rounded-2xl shadow-xl p-8">
 
-        <h2 className="text-2xl font-bold text-white text-center mb-6">
+        <h2 className="text-2xl font-bold text-light-900 text-center mb-6">
           Create Account
         </h2>
 
@@ -51,7 +51,7 @@ const SignupPage = () => {
             placeholder="Name"
             required
             onChange={(e) => setName(e.target.value)}
-            className="w-full px-4 py-2 rounded-xl bg-dark-800 border border-dark-700 text-white"
+            className="w-full px-4 py-2 rounded-xl bg-white border border-light-300 text-light-900"
           />
 
           <input
@@ -59,7 +59,7 @@ const SignupPage = () => {
             placeholder="Email"
             required
             onChange={(e) => setEmail(e.target.value)}
-            className="w-full px-4 py-2 rounded-xl bg-dark-800 border border-dark-700 text-white"
+            className="w-full px-4 py-2 rounded-xl bg-white border border-light-300 text-light-900"
           />
 
           <input
@@ -67,12 +67,12 @@ const SignupPage = () => {
             placeholder="Password"
             required
             onChange={(e) => setPassword(e.target.value)}
-            className="w-full px-4 py-2 rounded-xl bg-dark-800 border border-dark-700 text-white"
+            className="w-full px-4 py-2 rounded-xl bg-white border border-light-300 text-light-900"
           />
 
           <button
             type="submit"
-            className="w-full bg-primary-500 hover:bg-primary-600 text-white py-2.5 rounded-xl font-semibold"
+            className="w-full bg-primary-500 hover:bg-primary-600 text-light-900 py-2.5 rounded-xl font-semibold"
           >
             Signup
           </button>

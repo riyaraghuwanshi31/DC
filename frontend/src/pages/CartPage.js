@@ -9,7 +9,7 @@ const CartPage = () => {
     return (
       <div className="min-h-screen pt-24 flex flex-col items-center justify-center text-center px-4">
         <div className="text-7xl mb-6">🛒</div>
-        <h2 className="font-display text-3xl font-bold text-white mb-3">Your cart is empty</h2>
+        <h2 className="font-display text-3xl font-bold text-light-900 mb-3">Your cart is empty</h2>
         <p className="text-dark-400 mb-8 max-w-sm">Looks like you haven't added any products yet. Browse our collection and find something you love!</p>
         <Link to="/products" className="btn-primary px-8 py-3.5 text-base">Browse Products</Link>
       </div>
@@ -42,7 +42,7 @@ const CartPage = () => {
               <div key={item._id} className="card p-5 flex gap-4 animate-fade-in">
                 {/* Image */}
                 <Link to={`/products/${item._id}`} className="shrink-0">
-                  <div className="w-24 h-24 rounded-xl overflow-hidden bg-dark-700">
+                  <div className="w-24 h-24 rounded-xl overflow-hidden bg-light-200">
                     <img
                       src={item.image}
                       alt={item.name}
@@ -56,30 +56,30 @@ const CartPage = () => {
                 <div className="flex-1 min-w-0">
                   <span className="text-xs text-primary-400 font-medium">{item.category}</span>
                   <Link to={`/products/${item._id}`}>
-                    <h3 className="font-semibold text-white hover:text-primary-400 transition-colors line-clamp-2 text-sm mt-0.5">{item.name}</h3>
+                    <h3 className="font-semibold text-light-900 hover:text-primary-400 transition-colors line-clamp-2 text-sm mt-0.5">{item.name}</h3>
                   </Link>
                   <p className="text-primary-400 font-bold mt-1">₹{item.price.toLocaleString('en-IN')}</p>
 
                   <div className="flex items-center justify-between mt-3">
                     {/* Quantity controls */}
-                    <div className="flex items-center gap-2 bg-dark-700 rounded-xl p-1">
+                    <div className="flex items-center gap-2 bg-light-200 rounded-xl p-1">
                       <button
                         onClick={() => updateQuantity(item._id, item.quantity - 1)}
-                        className="w-8 h-8 rounded-lg bg-dark-600 hover:bg-dark-500 text-white flex items-center justify-center transition-colors font-bold"
+                        className="w-8 h-8 rounded-lg bg-dark-600 hover:bg-dark-500 text-light-900 flex items-center justify-center transition-colors font-bold"
                       >
                         −
                       </button>
-                      <span className="text-white font-semibold w-8 text-center">{item.quantity}</span>
+                      <span className="text-light-900 font-semibold w-8 text-center">{item.quantity}</span>
                       <button
                         onClick={() => updateQuantity(item._id, item.quantity + 1)}
-                        className="w-8 h-8 rounded-lg bg-dark-600 hover:bg-dark-500 text-white flex items-center justify-center transition-colors font-bold"
+                        className="w-8 h-8 rounded-lg bg-dark-600 hover:bg-dark-500 text-light-900 flex items-center justify-center transition-colors font-bold"
                       >
                         +
                       </button>
                     </div>
 
                     <div className="flex items-center gap-4">
-                      <span className="font-bold text-white text-lg">
+                      <span className="font-bold text-light-900 text-lg">
                         ₹{(item.price * item.quantity).toLocaleString('en-IN')}
                       </span>
                       <button
@@ -101,29 +101,29 @@ const CartPage = () => {
           {/* Order Summary */}
           <div className="lg:col-span-1">
             <div className="card p-6 sticky top-24">
-              <h2 className="font-display text-xl font-bold text-white mb-5">Order Summary</h2>
+              <h2 className="font-display text-xl font-bold text-light-900 mb-5">Order Summary</h2>
 
               <div className="space-y-3 mb-5">
                 {items.map((item) => (
                   <div key={item._id} className="flex justify-between text-sm">
                     <span className="text-dark-400 truncate mr-3">{item.name} <span className="text-dark-500">×{item.quantity}</span></span>
-                    <span className="text-white font-medium shrink-0">₹{(item.price * item.quantity).toLocaleString('en-IN')}</span>
+                    <span className="text-light-900 font-medium shrink-0">₹{(item.price * item.quantity).toLocaleString('en-IN')}</span>
                   </div>
                 ))}
               </div>
 
-              <div className="border-t border-dark-700 pt-4 mb-6">
+              <div className="border-t border-light-300 pt-4 mb-6">
                 <div className="flex justify-between items-center mb-2">
                   <span className="text-dark-400">Subtotal</span>
-                  <span className="text-white font-semibold">₹{totalPrice.toLocaleString('en-IN')}</span>
+                  <span className="text-light-900 font-semibold">₹{totalPrice.toLocaleString('en-IN')}</span>
                 </div>
                 <div className="flex justify-between items-center mb-2">
                   <span className="text-dark-400">Shipping</span>
                   <span className="text-green-400 font-semibold">Free</span>
                 </div>
-                <div className="border-t border-dark-700 pt-3 mt-3 flex justify-between items-center">
-                  <span className="font-semibold text-white">Total</span>
-                  <span className="font-display text-2xl font-bold text-white">₹{totalPrice.toLocaleString('en-IN')}</span>
+                <div className="border-t border-light-300 pt-3 mt-3 flex justify-between items-center">
+                  <span className="font-semibold text-light-900">Total</span>
+                  <span className="font-display text-2xl font-bold text-light-900">₹{totalPrice.toLocaleString('en-IN')}</span>
                 </div>
               </div>
 

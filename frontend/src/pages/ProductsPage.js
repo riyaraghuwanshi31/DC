@@ -78,8 +78,8 @@ const ProductsPage = () => {
                 onClick={() => updateParam('category', cat === 'All' ? '' : cat)}
                 className={`px-4 py-2 rounded-xl text-sm font-medium transition-all ${
                   activeCategory === cat
-                    ? 'bg-primary-500 text-white shadow-lg shadow-primary-500/20'
-                    : 'bg-dark-800 text-dark-300 hover:text-white border border-dark-700 hover:border-dark-600'
+                    ? 'bg-primary-500 text-light-900 shadow-lg shadow-primary-500/20'
+                    : 'bg-white text-dark-300 hover:text-light-900 border border-light-300 hover:border-light-300'
                 }`}
               >
                 {cat}
@@ -105,7 +105,7 @@ const ProductsPage = () => {
             <span className="text-dark-400 text-sm">Searching:</span>
             <span className="badge bg-primary-500/20 text-primary-400 border border-primary-500/30 px-3 py-1 text-sm">
               {activeSearch}
-              <button onClick={() => updateParam('search', '')} className="ml-2 hover:text-white">✕</button>
+              <button onClick={() => updateParam('search', '')} className="ml-2 hover:text-light-900">✕</button>
             </span>
           </div>
         )}
@@ -118,7 +118,7 @@ const ProductsPage = () => {
         ) : products.length === 0 ? (
           <div className="text-center py-24">
             <div className="text-6xl mb-4">🔍</div>
-            <h3 className="text-xl font-semibold text-white mb-2">No products found</h3>
+            <h3 className="text-xl font-semibold text-light-900 mb-2">No products found</h3>
             <p className="text-dark-400 mb-6">Try adjusting your filters or search query.</p>
             <button onClick={() => setSearchParams({})} className="btn-primary">Clear All Filters</button>
           </div>
@@ -145,7 +145,7 @@ const ProductsPage = () => {
                 key={i + 1}
                 onClick={() => updateParam('page', String(i + 1))}
                 className={`w-10 h-10 rounded-xl text-sm font-medium transition-all ${
-                  activePage === i + 1 ? 'bg-primary-500 text-white' : 'bg-dark-800 text-dark-300 hover:text-white border border-dark-700'
+                  activePage === i + 1 ? 'bg-primary-500 text-light-900' : 'bg-white text-dark-300 hover:text-light-900 border border-light-300'
                 }`}
               >
                 {i + 1}

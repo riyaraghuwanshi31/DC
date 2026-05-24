@@ -46,8 +46,8 @@ const Navbar = () => {
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled || menuOpen
-        ? 'bg-dark-950/95 backdrop-blur-lg shadow-xl shadow-black/20 border-b border-dark-700'
+      className={`sticky top-0 z-50 bg-white/80 backdrop-blur-lg border-b border-light-300 ${scrolled || menuOpen
+        ? 'bg-dark-950/95 backdrop-blur-lg shadow-xl shadow-black/20 border-b border-light-300'
         : 'bg-transparent'
         }`}
     >
@@ -62,10 +62,10 @@ const Navbar = () => {
             />
           </Link>
           {/* <Link to="/" className="flex items-center gap-2 group">
-            <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-primary-500 to-orange-400 flex items-center justify-center font-display font-bold text-white text-lg shadow-lg shadow-primary-500/30 group-hover:shadow-primary-500/50 transition-all">
+            <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-primary-500 to-orange-400 flex items-center justify-center font-display font-bold text-light-900 text-lg shadow-lg shadow-primary-500/30 group-hover:shadow-primary-500/50 transition-all">
               D
             </div>
-            <span className="font-display font-bold text-xl text-white hidden sm:block">
+            <span className="font-display font-bold text-xl text-light-900 hidden sm:block">
               Dubey <span className="text-primary-400">Creations</span>
             </span>
           </Link> */}
@@ -78,7 +78,7 @@ const Navbar = () => {
                 to={link.to}
                 className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors ${location.pathname === link.to.split('?')[0] && link.to === location.pathname
                   ? 'bg-primary-500/20 text-primary-400'
-                  : 'text-dark-300 hover:text-white hover:bg-dark-800'
+                  : 'text-dark-300 hover:text-light-900 hover:bg-white'
                   }`}
               >
                 {link.label}
@@ -94,7 +94,7 @@ const Navbar = () => {
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
                 placeholder="Search products..."
-                className="bg-dark-800 border border-dark-700 text-white placeholder-dark-400 text-sm rounded-xl pl-4 pr-10 py-2 w-72 focus:outline-none focus:border-primary-500 focus:w-64 transition-all duration-300"
+                className="bg-white border border-light-300 text-light-900 placeholder-light-500 text-sm rounded-xl pl-4 pr-10 py-2 w-72 focus:outline-none focus:border-primary-500 focus:w-64 transition-all duration-300"
               />
               <button type="submit" className="absolute right-3 top-1/2 -translate-y-1/2 text-dark-400 hover:text-primary-400 transition-colors">
                 <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -110,7 +110,7 @@ const Navbar = () => {
             {isAdmin && (
               <Link
                 to="/admin"
-                className="hidden sm:flex items-center gap-1.5 text-dark-400 hover:text-white transition-colors px-3 py-2 rounded-lg hover:bg-dark-800 text-sm"
+                className="hidden sm:flex items-center gap-1.5 text-dark-400 hover:text-light-900 transition-colors px-3 py-2 rounded-lg hover:bg-white text-sm"
               >
                 {/* <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0..." />
@@ -126,7 +126,7 @@ const Navbar = () => {
                   logout();
                   window.location.reload();
                 }}
-                className="hidden sm:flex items-center gap-1.5 text-red-400 hover:text-white transition-colors px-3 py-2 rounded-lg hover:bg-dark-800 text-sm"
+                className="hidden sm:flex items-center gap-1.5 text-red-400 hover:text-light-900 transition-colors px-3 py-2 rounded-lg hover:bg-white text-sm"
               >
                 Logout
               </button>
@@ -137,14 +137,14 @@ const Navbar = () => {
 
                 <Link
                   to="/login"
-                  className="text-primary-400 hover:text-white transition-colors px-3 py-2 rounded-lg hover:bg-dark-800 text-sm"
+                  className="text-primary-400 hover:text-light-900 transition-colors px-3 py-2 rounded-lg hover:bg-white text-sm"
                 >
                   Login
                 </Link>
 
                 <Link
                   to="/signup"
-                  className="bg-primary-500 hover:bg-primary-600 text-white px-4 py-2 rounded-lg text-sm font-medium transition-colors"
+                  className="bg-primary-500 hover:bg-primary-600 text-light-900 px-4 py-2 rounded-lg text-sm font-medium transition-colors"
                 >
                   Signup
                 </Link>
@@ -156,7 +156,7 @@ const Navbar = () => {
             {/* Cart button */}
             <Link
               to="/cart"
-              className="relative flex items-center gap-2 bg-primary-500 hover:bg-primary-600 text-white px-4 py-2 rounded-xl text-sm font-semibold transition-all active:scale-95"
+              className="relative flex items-center gap-2 bg-primary-500 hover:bg-primary-600 text-light-900 px-4 py-2 rounded-xl text-sm font-semibold transition-all active:scale-95"
             >
               <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
@@ -172,7 +172,7 @@ const Navbar = () => {
             {/* Mobile menu button */}
             <button
               onClick={() => setMenuOpen(!menuOpen)}
-              className="lg:hidden p-2 text-dark-400 hover:text-white rounded-lg hover:bg-dark-800 transition-colors"
+              className="lg:hidden p-2 text-dark-400 hover:text-light-900 rounded-lg hover:bg-white transition-colors"
             >
               <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 {menuOpen ? (
@@ -187,7 +187,7 @@ const Navbar = () => {
 
         {/* Mobile menu */}
         {menuOpen && (
-          <div className="lg:hidden border-t border-dark-700 py-4 animate-slide-up bg-dark-950/95 backdrop-blur-lg">
+          <div className="lg:hidden border-t border-light-300 py-4 animate-slide-up bg-dark-950/95 backdrop-blur-lg">
             <form onSubmit={handleSearch} className="mb-4">
               <div className="relative">
                 <input
@@ -206,14 +206,14 @@ const Navbar = () => {
             </form>
             <nav className="flex flex-col gap-1">
               {navLinks.map((link) => (
-                <Link key={link.to} to={link.to} className="px-4 py-3 text-dark-300 hover:text-white hover:bg-dark-800 rounded-xl transition-colors">
+                <Link key={link.to} to={link.to} className="px-4 py-3 text-dark-300 hover:text-light-900 hover:bg-white rounded-xl transition-colors">
                   {link.label}
                 </Link>
               ))}
               {isAdmin && (
                 <Link
                   to="/admin"
-                  className="px-4 py-3 text-dark-300 hover:text-white hover:bg-dark-800 rounded-xl transition-colors"
+                  className="px-4 py-3 text-dark-300 hover:text-light-900 hover:bg-white rounded-xl transition-colors"
                 >
                   Admin Panel
                 </Link>
@@ -225,7 +225,7 @@ const Navbar = () => {
                     logout();
                     window.location.reload();
                   }}
-                  className="px-4 py-3 text-red-400 text-left hover:bg-dark-800 rounded-xl"
+                  className="px-4 py-3 text-red-400 text-left hover:bg-white rounded-xl"
                 >
                   Logout
                 </button>
@@ -235,14 +235,14 @@ const Navbar = () => {
                 <>
                   <Link
                     to="/login"
-                    className="px-4 py-3 text-primary-400 hover:bg-dark-800 rounded-xl"
+                    className="px-4 py-3 text-primary-400 hover:bg-white rounded-xl"
                   >
                     Login
                   </Link>
 
                   <Link
                     to="/signup"
-                    className="px-4 py-3 text-white hover:bg-dark-800 rounded-xl"
+                    className="px-4 py-3 text-light-900 hover:bg-white rounded-xl"
                   >
                     Signup
                   </Link>
@@ -255,14 +255,14 @@ const Navbar = () => {
                     logout();
                     window.location.reload();
                   }}
-                  className="px-4 py-3 text-red-400 text-left hover:bg-dark-800 rounded-xl"
+                  className="px-4 py-3 text-red-400 text-left hover:bg-white rounded-xl"
                 >
                   Logout
                 </button>
               ) : (
                 <Link
                   to="/login"
-                  className="px-4 py-3 text-primary-400 hover:bg-dark-800 rounded-xl"
+                  className="px-4 py-3 text-primary-400 hover:bg-white rounded-xl"
                 >
                   Login
                 </Link>

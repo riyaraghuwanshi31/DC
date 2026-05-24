@@ -94,7 +94,7 @@ const AdminPage = () => {
         {/* Add Product Form */}
         {showForm && (
           <div className="card p-6 mb-8 animate-slide-up border-primary-500/30">
-            <h2 className="font-display text-xl font-bold text-white mb-6">Add New Product</h2>
+            <h2 className="font-display text-xl font-bold text-light-900 mb-6">Add New Product</h2>
             <form onSubmit={handleSubmit} className="grid grid-cols-1 sm:grid-cols-2 gap-4">
 
               <div className="sm:col-span-2">
@@ -167,7 +167,7 @@ const AdminPage = () => {
           {['All', ...CATEGORIES].map((cat) => (
             <button key={cat} onClick={() => setFilter(cat)}
               className={`px-4 py-2 rounded-xl text-sm font-medium transition-all ${
-                filter === cat ? 'bg-primary-500 text-white' : 'bg-dark-800 text-dark-300 hover:text-white border border-dark-700'
+                filter === cat ? 'bg-primary-500 text-light-900' : 'bg-white text-dark-300 hover:text-light-900 border border-light-300'
               }`}>
               {cat}
             </button>
@@ -181,7 +181,7 @@ const AdminPage = () => {
           <div className="card overflow-hidden">
             <div className="overflow-x-auto">
               <table className="w-full">
-                <thead className="bg-dark-700">
+                <thead className="bg-light-200">
                   <tr>
                     <th className="text-left px-5 py-3.5 text-dark-300 text-sm font-medium">Product</th>
                     <th className="text-left px-5 py-3.5 text-dark-300 text-sm font-medium">Category</th>
@@ -193,21 +193,21 @@ const AdminPage = () => {
                 </thead>
                 <tbody className="divide-y divide-dark-700">
                   {products.map((product) => (
-                    <tr key={product._id} className="hover:bg-dark-700/50 transition-colors">
+                    <tr key={product._id} className="hover:bg-light-200/50 transition-colors">
                       <td className="px-5 py-4">
                         <div className="flex items-center gap-3">
                           <div className="w-12 h-12 rounded-lg overflow-hidden bg-dark-600 shrink-0">
                             <img src={product.image} alt="" className="w-full h-full object-cover"
                               onError={(e) => { e.target.src = 'https://images.unsplash.com/photo-1468495244123-6c6c332eeece?w=100'; }} />
                           </div>
-                          <span className="text-white text-sm font-medium line-clamp-1 max-w-[200px]">{product.name}</span>
+                          <span className="text-light-900 text-sm font-medium line-clamp-1 max-w-[200px]">{product.name}</span>
                         </div>
                       </td>
                       <td className="px-5 py-4">
                         <span className="badge bg-primary-500/10 text-primary-400 border border-primary-500/20">{product.category}</span>
                       </td>
                       <td className="px-5 py-4">
-                        <span className="text-white font-semibold">₹{product.price.toLocaleString('en-IN')}</span>
+                        <span className="text-light-900 font-semibold">₹{product.price.toLocaleString('en-IN')}</span>
                         {product.originalPrice && (
                           <span className="text-dark-500 text-xs line-through ml-2">₹{product.originalPrice.toLocaleString('en-IN')}</span>
                         )}

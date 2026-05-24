@@ -15,7 +15,7 @@ const CheckoutPage = () => {
     return (
       <div className="min-h-screen pt-24 flex flex-col items-center justify-center text-center px-4">
         <div className="text-7xl mb-6">🛒</div>
-        <h2 className="font-display text-3xl font-bold text-white mb-3">Nothing to checkout</h2>
+        <h2 className="font-display text-3xl font-bold text-light-900 mb-3">Nothing to checkout</h2>
         <p className="text-dark-400 mb-8">Add items to your cart first.</p>
         <Link to="/products" className="btn-primary">Browse Products</Link>
       </div>
@@ -103,7 +103,7 @@ const CheckoutPage = () => {
           <div className="lg:col-span-3">
             <form onSubmit={handlePlaceOrder}>
               <div className="card p-6 mb-6">
-                <h2 className="font-display text-lg font-bold text-white mb-5 flex items-center gap-2">
+                <h2 className="font-display text-lg font-bold text-light-900 mb-5 flex items-center gap-2">
                   <span className="w-7 h-7 bg-primary-500 rounded-lg flex items-center justify-center text-sm">1</span>
                   Your Details
                 </h2>
@@ -162,9 +162,9 @@ const CheckoutPage = () => {
                 <div className="flex items-start gap-3">
                   <div className="text-2xl">💬</div>
                   <div>
-                    <h3 className="font-semibold text-white mb-1">How it works</h3>
+                    <h3 className="font-semibold text-light-900 mb-1">How it works</h3>
                     <p className="text-dark-300 text-sm leading-relaxed">
-                      After clicking <strong className="text-white">"Place Order via WhatsApp"</strong>, WhatsApp will open with your complete order details pre-filled. Simply send that message to complete your order!
+                      After clicking <strong className="text-light-900">"Place Order via WhatsApp"</strong>, WhatsApp will open with your complete order details pre-filled. Simply send that message to complete your order!
                     </p>
                   </div>
                 </div>
@@ -173,7 +173,7 @@ const CheckoutPage = () => {
               <button
                 type="submit"
                 disabled={submitting}
-                className="w-full flex items-center justify-center gap-3 bg-green-600 hover:bg-green-500 disabled:bg-green-900 disabled:cursor-not-allowed text-white font-bold py-4 rounded-xl text-base transition-all active:scale-95 shadow-lg shadow-green-900/30"
+                className="w-full flex items-center justify-center gap-3 bg-green-600 hover:bg-green-500 disabled:bg-green-900 disabled:cursor-not-allowed text-light-900 font-bold py-4 rounded-xl text-base transition-all active:scale-95 shadow-lg shadow-green-900/30"
               >
                 {submitting ? (
                   <>
@@ -199,7 +199,7 @@ const CheckoutPage = () => {
           {/* Order summary */}
           <div className="lg:col-span-2">
             <div className="card p-6 sticky top-24">
-              <h2 className="font-display text-lg font-bold text-white mb-5 flex items-center gap-2">
+              <h2 className="font-display text-lg font-bold text-light-900 mb-5 flex items-center gap-2">
                 <span className="w-7 h-7 bg-primary-500 rounded-lg flex items-center justify-center text-sm">2</span>
                 Order Summary
               </h2>
@@ -207,12 +207,12 @@ const CheckoutPage = () => {
               <div className="space-y-3 max-h-64 overflow-y-auto pr-1 mb-5">
                 {items.map((item) => (
                   <div key={item._id} className="flex gap-3">
-                    <div className="w-14 h-14 rounded-lg overflow-hidden bg-dark-700 shrink-0">
+                    <div className="w-14 h-14 rounded-lg overflow-hidden bg-light-200 shrink-0">
                       <img src={item.image} alt={item.name} className="w-full h-full object-cover"
                         onError={(e) => { e.target.src = 'https://images.unsplash.com/photo-1468495244123-6c6c332eeece?w=200'; }} />
                     </div>
                     <div className="flex-1 min-w-0">
-                      <p className="text-white text-xs font-medium line-clamp-2">{item.name}</p>
+                      <p className="text-light-900 text-xs font-medium line-clamp-2">{item.name}</p>
                       <p className="text-dark-400 text-xs mt-0.5">Qty: {item.quantity}</p>
                       <p className="text-primary-400 text-sm font-bold">₹{(item.price * item.quantity).toLocaleString('en-IN')}</p>
                     </div>
@@ -220,18 +220,18 @@ const CheckoutPage = () => {
                 ))}
               </div>
 
-              <div className="border-t border-dark-700 pt-4 space-y-2">
+              <div className="border-t border-light-300 pt-4 space-y-2">
                 <div className="flex justify-between text-sm">
                   <span className="text-dark-400">Subtotal</span>
-                  <span className="text-white">₹{totalPrice.toLocaleString('en-IN')}</span>
+                  <span className="text-light-900">₹{totalPrice.toLocaleString('en-IN')}</span>
                 </div>
                 <div className="flex justify-between text-sm">
                   <span className="text-dark-400">Delivery</span>
                   <span className="text-green-400">Free</span>
                 </div>
-                <div className="flex justify-between font-bold pt-2 border-t border-dark-700">
-                  <span className="text-white">Total</span>
-                  <span className="text-white text-xl">₹{totalPrice.toLocaleString('en-IN')}</span>
+                <div className="flex justify-between font-bold pt-2 border-t border-light-300">
+                  <span className="text-light-900">Total</span>
+                  <span className="text-light-900 text-xl">₹{totalPrice.toLocaleString('en-IN')}</span>
                 </div>
               </div>
 

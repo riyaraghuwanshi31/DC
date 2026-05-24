@@ -12,7 +12,7 @@ const ProductCard = ({ product }) => {
   return (
     <div className="card card-hover group flex flex-col">
       {/* Image */}
-      <Link to={`/products/${product._id}`} className="relative overflow-hidden aspect-[4/3] bg-dark-700">
+      <Link to={`/products/${product._id}`} className="relative overflow-hidden aspect-[4/3] bg-light-200">
         <img
           src={product.image}
           alt={product.name}
@@ -24,15 +24,15 @@ const ProductCard = ({ product }) => {
         {/* Badges */}
         <div className="absolute top-3 left-3 flex flex-col gap-1.5">
           {product.isNew && (
-            <span className="badge bg-primary-500 text-white">NEW</span>
+            <span className="badge bg-primary-500 text-light-900">NEW</span>
           )}
           {discount > 0 && (
-            <span className="badge bg-green-500 text-white">{discount}% OFF</span>
+            <span className="badge bg-green-500 text-light-900">{discount}% OFF</span>
           )}
         </div>
         {product.stock === 0 && (
-          <div className="absolute inset-0 bg-dark-900/70 flex items-center justify-center">
-            <span className="badge bg-red-500/90 text-white text-sm px-3 py-1">Out of Stock</span>
+          <div className="absolute inset-0 bg-light-100/70 flex items-center justify-center">
+            <span className="badge bg-red-500/90 text-light-900 text-sm px-3 py-1">Out of Stock</span>
           </div>
         )}
       </Link>
@@ -41,7 +41,7 @@ const ProductCard = ({ product }) => {
       <div className="p-4 flex flex-col flex-1">
         <span className="text-xs text-primary-400 font-medium mb-1">{product.category}</span>
         <Link to={`/products/${product._id}`}>
-          <h3 className="font-semibold text-white text-sm leading-snug hover:text-primary-400 transition-colors line-clamp-2 mb-2">
+          <h3 className="font-semibold text-light-900 text-sm leading-snug hover:text-primary-400 transition-colors line-clamp-2 mb-2">
             {product.name}
           </h3>
         </Link>
@@ -64,7 +64,7 @@ const ProductCard = ({ product }) => {
         <div className="mt-auto">
           {/* Price */}
           <div className="flex items-baseline gap-2 mb-3">
-            <span className="text-xl font-bold text-white">
+            <span className="text-xl font-bold text-light-900">
               ₹{product.price.toLocaleString('en-IN')}
             </span>
             {product.originalPrice && (
@@ -80,10 +80,10 @@ const ProductCard = ({ product }) => {
             disabled={product.stock === 0}
             className={`w-full py-2.5 rounded-xl text-sm font-semibold transition-all active:scale-95 ${
               product.stock === 0
-                ? 'bg-dark-700 text-dark-500 cursor-not-allowed'
+                ? 'bg-light-200 text-dark-500 cursor-not-allowed'
                 : inCart
                 ? 'bg-green-600/20 text-green-400 border border-green-600/30 hover:bg-green-600/30'
-                : 'bg-primary-500 hover:bg-primary-600 text-white'
+                : 'bg-primary-500 hover:bg-primary-600 text-light-900'
             }`}
           >
             {product.stock === 0 ? 'Out of Stock' : inCart ? '✓ Added to Cart' : 'Add to Cart'}

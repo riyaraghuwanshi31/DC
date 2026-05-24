@@ -19,7 +19,7 @@ function App() {
   return (
     <CartProvider>
       <Router>
-        <div className="min-h-screen bg-dark-950 flex flex-col">
+        <div className="bg-gradient-to-b from-white via-light-100 to-orange-50">
           <Navbar />
           <main className="flex-1">
             <Routes>
@@ -49,7 +49,7 @@ function App() {
               <Route path="*" element={
                 <div className="min-h-screen flex flex-col items-center justify-center text-center px-4">
                   <div className="text-8xl mb-6">404</div>
-                  <h2 className="font-display text-3xl font-bold text-white mb-3">Page not found</h2>
+                  <h2 className="font-display text-3xl font-bold text-light-900 mb-3">Page not found</h2>
                   <p className="text-dark-400 mb-8">The page you're looking for doesn't exist.</p>
                   <a href="/" className="btn-primary px-8 py-3.5">Go Home</a>
                 </div>

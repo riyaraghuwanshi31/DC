@@ -45,7 +45,7 @@ const ProductDetailPage = () => {
   if (error) return (
     <div className="min-h-screen pt-24 flex flex-col items-center justify-center text-center px-4">
       <div className="text-6xl mb-4">😕</div>
-      <h2 className="text-2xl font-bold text-white mb-2">Product Not Found</h2>
+      <h2 className="text-2xl font-bold text-light-900 mb-2">Product Not Found</h2>
       <p className="text-dark-400 mb-6">{error}</p>
       <Link to="/products" className="btn-primary">Back to Products</Link>
     </div>
@@ -62,13 +62,13 @@ const ProductDetailPage = () => {
 
         {/* Breadcrumb */}
         <nav className="flex items-center gap-2 text-sm text-dark-400 mb-8">
-          <Link to="/" className="hover:text-white transition-colors">Home</Link>
+          <Link to="/" className="hover:text-light-900 transition-colors">Home</Link>
           <span>/</span>
-          <Link to="/products" className="hover:text-white transition-colors">Products</Link>
+          <Link to="/products" className="hover:text-light-900 transition-colors">Products</Link>
           <span>/</span>
-          <Link to={`/products?category=${product.category}`} className="hover:text-white transition-colors">{product.category}</Link>
+          <Link to={`/products?category=${product.category}`} className="hover:text-light-900 transition-colors">{product.category}</Link>
           <span>/</span>
-          <span className="text-white truncate max-w-[200px]">{product.name}</span>
+          <span className="text-light-900 truncate max-w-[200px]">{product.name}</span>
         </nav>
 
         {/* Product detail */}
@@ -76,7 +76,7 @@ const ProductDetailPage = () => {
 
           {/* Images */}
           <div>
-            <div className="rounded-2xl overflow-hidden bg-dark-800 border border-dark-700 aspect-square mb-4">
+            <div className="rounded-2xl overflow-hidden bg-white border border-light-300 aspect-square mb-4">
               <img
                 src={images[selectedImage]}
                 alt={product.name}
@@ -91,7 +91,7 @@ const ProductDetailPage = () => {
                     key={i}
                     onClick={() => setSelectedImage(i)}
                     className={`w-20 h-20 rounded-xl overflow-hidden border-2 transition-all ${
-                      selectedImage === i ? 'border-primary-500' : 'border-dark-700 hover:border-dark-500'
+                      selectedImage === i ? 'border-primary-500' : 'border-light-300 hover:border-dark-500'
                     }`}
                   >
                     <img src={img} alt="" className="w-full h-full object-cover" />
@@ -105,13 +105,13 @@ const ProductDetailPage = () => {
           <div>
             <div className="flex flex-wrap items-center gap-2 mb-3">
               <span className="badge bg-primary-500/20 text-primary-400 border border-primary-500/30">{product.category}</span>
-              {product.isNew && <span className="badge bg-primary-500 text-white">NEW</span>}
-              {discount > 0 && <span className="badge bg-green-500 text-white">{discount}% OFF</span>}
-              {product.stock === 0 && <span className="badge bg-red-500 text-white">Out of Stock</span>}
+              {product.isNew && <span className="badge bg-primary-500 text-light-900">NEW</span>}
+              {discount > 0 && <span className="badge bg-green-500 text-light-900">{discount}% OFF</span>}
+              {product.stock === 0 && <span className="badge bg-red-500 text-light-900">Out of Stock</span>}
             </div>
 
-            <h1 className="font-display text-3xl font-bold text-white mb-2 leading-tight">{product.name}</h1>
-            <p className="text-dark-400 text-sm mb-4">Brand: <span className="text-white">{product.brand}</span></p>
+            <h1 className="font-display text-3xl font-bold text-light-900 mb-2 leading-tight">{product.name}</h1>
+            <p className="text-dark-400 text-sm mb-4">Brand: <span className="text-light-900">{product.brand}</span></p>
 
             {/* Rating */}
             {product.ratings > 0 && (
@@ -123,14 +123,14 @@ const ProductDetailPage = () => {
                     </svg>
                   ))}
                 </div>
-                <span className="text-white font-medium">{product.ratings}</span>
+                <span className="text-light-900 font-medium">{product.ratings}</span>
                 <span className="text-dark-400 text-sm">({product.numReviews} reviews)</span>
               </div>
             )}
 
             {/* Price */}
             <div className="flex items-baseline gap-3 mb-6">
-              <span className="font-display text-4xl font-bold text-white">
+              <span className="font-display text-4xl font-bold text-light-900">
                 ₹{product.price.toLocaleString('en-IN')}
               </span>
               {product.originalPrice && (
@@ -160,10 +160,10 @@ const ProductDetailPage = () => {
                 disabled={product.stock === 0}
                 className={`flex-1 py-4 rounded-xl font-semibold text-base transition-all active:scale-95 ${
                   product.stock === 0
-                    ? 'bg-dark-700 text-dark-500 cursor-not-allowed'
+                    ? 'bg-light-200 text-dark-500 cursor-not-allowed'
                     : inCart
                     ? 'bg-green-600/20 text-green-400 border border-green-600/30 hover:bg-green-600/30'
-                    : 'bg-primary-500 hover:bg-primary-600 text-white shadow-lg shadow-primary-500/20'
+                    : 'bg-primary-500 hover:bg-primary-600 text-light-900 shadow-lg shadow-primary-500/20'
                 }`}
               >
                 {product.stock === 0 ? 'Out of Stock' : inCart ? '✓ Added to Cart' : '🛒 Add to Cart'}
@@ -178,12 +178,12 @@ const ProductDetailPage = () => {
         {/* Specs */}
         {product.specs?.length > 0 && (
           <div className="card p-8 mb-16">
-            <h2 className="font-display text-2xl font-bold text-white mb-6">Specifications</h2>
+            <h2 className="font-display text-2xl font-bold text-light-900 mb-6">Specifications</h2>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-0 divide-y divide-dark-700 sm:divide-y-0">
               {product.specs.map((spec, i) => (
-                <div key={i} className={`flex gap-4 py-3 ${i % 2 === 0 ? 'sm:pr-8' : 'sm:pl-8 sm:border-l border-dark-700'}`}>
+                <div key={i} className={`flex gap-4 py-3 ${i % 2 === 0 ? 'sm:pr-8' : 'sm:pl-8 sm:border-l border-light-300'}`}>
                   <span className="text-dark-400 text-sm min-w-[140px] shrink-0">{spec.key}</span>
-                  <span className="text-white text-sm font-medium">{spec.value}</span>
+                  <span className="text-light-900 text-sm font-medium">{spec.value}</span>
                 </div>
               ))}
             </div>

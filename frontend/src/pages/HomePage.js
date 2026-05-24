@@ -49,7 +49,7 @@ const HomePage = () => {
   };
 
   return (
-    <div className="min-h-screen">
+    <div className="bg-light-100 min-h-screen">
       {/* ── Hero ── */}
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
         {/* Background */}
@@ -69,7 +69,7 @@ const HomePage = () => {
             <span className="text-primary-400 text-sm font-medium">Order Online - Fast & Easy</span>
           </div>
 
-          <h1 className="font-display text-5xl sm:text-6xl md:text-7xl font-bold text-white leading-tight mb-6 animate-slide-up">
+          <h1 className="font-display text-5xl sm:text-6xl md:text-7xl font-bold text-light-900 leading-tight mb-6 animate-slide-up">
             Premium TVs<br />
             <span className="gradient-text">Delivered to You</span>
           </h1>
@@ -131,7 +131,7 @@ const HomePage = () => {
               <div className={`w-14 h-14 rounded-2xl bg-gradient-to-br ${cat.color} flex items-center justify-center text-2xl mx-auto mb-3 group-hover:scale-110 transition-transform`}>
                 {cat.icon}
               </div>
-              <h3 className="font-semibold text-white text-sm mb-1">{cat.name}</h3>
+              <h3 className="font-semibold text-light-900 text-sm mb-1">{cat.name}</h3>
               <p className="text-dark-500 text-xs">{cat.desc}</p>
             </Link>
           ))}
@@ -181,7 +181,7 @@ const HomePage = () => {
           <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(34,197,94,0.05),transparent)]" />
           <div className="relative">
             <div className="text-5xl mb-4">💬</div>
-            <h2 className="font-display text-3xl font-bold text-white mb-3">
+            <h2 className="font-display text-3xl font-bold text-light-900 mb-3">
               Order via <span className="text-green-400">WhatsApp</span>
             </h2>
             <p className="text-dark-300 max-w-xl mx-auto mb-7">
@@ -194,7 +194,7 @@ const HomePage = () => {
 
                 target="_blank"
                 rel="noreferrer"
-                className="flex items-center gap-2 bg-green-600 hover:bg-green-500 text-white font-semibold px-8 py-3.5 rounded-xl transition-colors"
+                className="flex items-center gap-2 bg-green-600 hover:bg-green-500 text-light-900 font-semibold px-8 py-3.5 rounded-xl transition-colors"
               >
                 <svg viewBox="0 0 24 24" className="w-5 h-5 fill-white">
                   <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/>

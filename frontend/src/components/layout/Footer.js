@@ -22,10 +22,10 @@ const Footer = () => {
                         />
                       </Link>
             {/* <Link to="/" className="flex items-center gap-2 mb-4">
-              <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-primary-500 to-orange-400 flex items-center justify-center font-display font-bold text-white text-lg">
+              <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-primary-500 to-orange-400 flex items-center justify-center font-display font-bold text-light-900 text-lg">
                 D
               </div>
-              <span className="font-display font-bold text-xl text-white">
+              <span className="font-display font-bold text-xl text-light-900">
                 Dubey <span className="text-primary-400">Creation</span>
               </span>
             </Link> */}
@@ -46,7 +46,7 @@ const Footer = () => {
 
           {/* Categories */}
           <div>
-            <h3 className="font-display font-semibold text-white mb-4">Categories</h3>
+            <h3 className="font-display font-semibold text-light-900 mb-4">Categories</h3>
             <ul className="space-y-2">
               {categories.map((cat) => (
                 <li key={cat}>
@@ -61,7 +61,7 @@ const Footer = () => {
 
           {/* Quick Links */}
           <div>
-            <h3 className="font-display font-semibold text-white mb-4">Quick Links</h3>
+            <h3 className="font-display font-semibold text-light-900 mb-4">Quick Links</h3>
             <ul className="space-y-2">
               {[
                 { to: '/', label: 'Home' },
@@ -80,7 +80,7 @@ const Footer = () => {
 
           {/* Contact */}
           <div>
-            <h3 className="font-display font-semibold text-white mb-4">Contact Us</h3>
+            <h3 className="font-display font-semibold text-light-900 mb-4">Contact Us</h3>
             <ul className="space-y-3 text-sm text-dark-400">
               <li className="flex items-center gap-2">
                 <svg className="w-4 h-4 text-primary-400 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
