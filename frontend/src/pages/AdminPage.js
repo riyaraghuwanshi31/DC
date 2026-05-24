@@ -2,7 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { getProducts, createProduct, deleteProduct } from '../utils/api';
 import toast from 'react-hot-toast';
 
-const CATEGORIES = ['TVs', 'Earbuds', 'Batteries', 'Laptops', 'Smartwatches', 'Accessories'];
+// const CATEGORIES = ['TVs', 'Earbuds', 'Batteries', 'Laptops', 'Smartwatches', 'Accessories'];
+const CATEGORIES = ['TVs', 'Accessories'];
 
 const emptyForm = {
   name: '', description: '', price: '', originalPrice: '', category: 'TVs',

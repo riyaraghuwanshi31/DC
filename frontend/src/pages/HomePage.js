@@ -4,20 +4,21 @@ import ProductCard from '../components/common/ProductCard';
 import { ProductCardSkeleton } from '../components/common/Skeleton';
 import { getFeaturedProducts } from '../utils/api';
 
-const CATEGORIES = [
-  { name: 'TVs', icon: '📺', desc: 'Smart & 4K TVs', color: 'from-blue-600 to-blue-800' },
-  { name: 'Earbuds', icon: '🎧', desc: 'Wireless Audio', color: 'from-purple-600 to-purple-800' },
-  { name: 'Batteries', icon: '🔋', desc: 'Power Banks & Li-Ion', color: 'from-green-600 to-green-800' },
-  { name: 'Laptops', icon: '💻', desc: 'Work & Gaming', color: 'from-indigo-600 to-indigo-800' },
-  { name: 'Smartwatches', icon: '⌚', desc: 'Fitness & Style', color: 'from-orange-600 to-orange-800' },
-  { name: 'Accessories', icon: '🔌', desc: 'Cables & Chargers', color: 'from-pink-600 to-pink-800' },
-];
+// const CATEGORIES = [
+//   { name: 'TVs', icon: '📺', desc: 'Smart & 4K TVs', color: 'from-blue-600 to-blue-800' },
+//   { name: 'Earbuds', icon: '🎧', desc: 'Wireless Audio', color: 'from-purple-600 to-purple-800' },
+//   { name: 'Batteries', icon: '🔋', desc: 'Power Banks & Li-Ion', color: 'from-green-600 to-green-800' },
+//   { name: 'Laptops', icon: '💻', desc: 'Work & Gaming', color: 'from-indigo-600 to-indigo-800' },
+//   { name: 'Smartwatches', icon: '⌚', desc: 'Fitness & Style', color: 'from-orange-600 to-orange-800' },
+//   { name: 'Accessories', icon: '🔌', desc: 'Cables & Chargers', color: 'from-pink-600 to-pink-800' },
+// ];
 
 const STATS = [
-  { label: 'Products', value: '11+' },
-  { label: 'Happy Customers', value: '39+' },
-  { label: 'Categories', value: '6+' },
-  { label: 'Orders via WhatsApp', value: '72+' },
+  { label: 'Products', value: '9' },
+  { label: 'Happy Customers', value: '39' },
+  // { label: 'Categories', value: '6+' },
+  { label: 'Outlets', value: '2' },
+  { label: 'Orders via WhatsApp', value: '42' },
 ];
 
 const HomePage = () => {
@@ -69,12 +70,12 @@ const HomePage = () => {
           </div>
 
           <h1 className="font-display text-5xl sm:text-6xl md:text-7xl font-bold text-white leading-tight mb-6 animate-slide-up">
-            Premium Gadgets<br />
+            Premium TVs<br />
             <span className="gradient-text">Delivered to You</span>
           </h1>
 
           <p className="text-dark-300 text-lg sm:text-xl max-w-2xl mx-auto mb-10 leading-relaxed animate-fade-in">
-            Explore the latest TVs, laptops, earbuds, smartwatches, and more.
+            Explore the latest TVs and Accessories.
             Place your order directly via <span className="text-green-400 font-semibold">WhatsApp</span> — direct connection, no hassle.
           </p>
 
@@ -84,7 +85,7 @@ const HomePage = () => {
               type="text"
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              placeholder="Search TVs, earbuds, laptops..."
+              placeholder="Search TV, Remote, & Other Products..."
               className="input-field flex-1 text-base"
             />
             <button type="submit" className="btn-primary whitespace-nowrap">
@@ -114,7 +115,7 @@ const HomePage = () => {
       </section>
 
       {/* ── Categories ── */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+      {/* <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
         <div className="text-center mb-12">
           <h2 className="section-title mb-3">Shop by <span className="gradient-text">Category</span></h2>
           <p className="text-dark-400">Find exactly what you're looking for</p>
@@ -135,7 +136,7 @@ const HomePage = () => {
             </Link>
           ))}
         </div>
-      </section>
+      </section> */}
 
       {/* ── Featured Products ── */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 pb-20">

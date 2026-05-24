@@ -39,9 +39,9 @@ const Navbar = () => {
   const navLinks = [
     { to: '/', label: 'Home' },
     { to: '/products', label: 'Products' },
-    { to: '/products?category=TVs', label: 'TVs' },
-    { to: '/products?category=Laptops', label: 'Laptops' },
-    { to: '/products?category=Earbuds', label: 'Earbuds' },
+    // { to: '/products?category=TVs', label: 'TVs' },
+    // { to: '/products?category=Laptops', label: 'Laptops' },
+    // { to: '/products?category=Earbuds', label: 'Earbuds' },
   ];
 
   return (
@@ -94,7 +94,7 @@ const Navbar = () => {
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
                 placeholder="Search products..."
-                className="bg-dark-800 border border-dark-700 text-white placeholder-dark-400 text-sm rounded-xl pl-4 pr-10 py-2 w-52 focus:outline-none focus:border-primary-500 focus:w-64 transition-all duration-300"
+                className="bg-dark-800 border border-dark-700 text-white placeholder-dark-400 text-sm rounded-xl pl-4 pr-10 py-2 w-72 focus:outline-none focus:border-primary-500 focus:w-64 transition-all duration-300"
               />
               <button type="submit" className="absolute right-3 top-1/2 -translate-y-1/2 text-dark-400 hover:text-primary-400 transition-colors">
                 <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">

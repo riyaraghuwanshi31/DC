@@ -4,7 +4,8 @@ import ProductCard from '../components/common/ProductCard';
 import { ProductCardSkeleton } from '../components/common/Skeleton';
 import { getProducts } from '../utils/api';
 
-const CATEGORIES = ['All', 'TVs', 'Earbuds', 'Batteries', 'Laptops', 'Smartwatches', 'Accessories'];
+// const CATEGORIES = ['All', 'TVs', 'Earbuds', 'Batteries', 'Laptops', 'Smartwatches', 'Accessories'];
+const CATEGORIES = ['All', 'TVs', 'Accessories'];
 const SORT_OPTIONS = [
   { value: 'newest', label: 'Newest First' },
   { value: 'price_asc', label: 'Price: Low to High' },

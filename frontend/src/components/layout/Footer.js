@@ -4,7 +4,9 @@ import logo from "../../assets/DC Logo WithoutBG.png";
 
 
 const Footer = () => {
-  const categories = ['TVs', 'Earbuds', 'Batteries', 'Laptops', 'Smartwatches', 'Accessories'];
+  // const categories = ['TVs', 'Earbuds', 'Batteries', 'Laptops', 'Smartwatches', 'Accessories'];
+  const categories = ['TVs', 'Accessories'];
+
 
   return (
     <footer className="bg-dark-950 border-t border-dark-800 mt-20">
