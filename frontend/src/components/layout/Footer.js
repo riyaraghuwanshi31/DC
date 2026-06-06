@@ -107,7 +107,7 @@ const Footer = () => {
         </div>
 
         <div className="border-t border-dark-800 mt-10 pt-6 flex flex-col sm:flex-row items-center justify-between gap-3">
-          <p className="text-dark-500 text-sm">© 2026 Dubey Creations. All rights reserved.</p>
+          <p className="text-dark-500 text-sm">© 2026 Dubey Creations. All rights reserved. Crafted with ❤️ by Team <a href="https://the-dev-era-ka37.vercel.app" target="_blank" rel="noopener noreferrer">TheDevEra</a>.</p>
           <p className="text-dark-500 text-sm">Orders easily via <span className="text-green-400 font-medium">WhatsApp.</span></p>
         </div>
       </div>
