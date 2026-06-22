@@ -19,8 +19,8 @@ app.use(cors({
     const allowedOrigins = [
       'http://localhost:3000',
       'http://localhost:5173',
-      'https://dubeycreation.in',
-      'https://www.dubeycreation.in'
+      'https://dubeycreations.in',
+      'https://www.dubeycreations.in'
     ];
 
     // Allow all Vercel preview deployments
