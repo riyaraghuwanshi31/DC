@@ -11,23 +11,55 @@ const app = express();
 
 
 app.use(cors({
-  origin: function(origin, callback) {
+  origin: function (origin, callback) {
+
+    // Allow requests with no origin (Postman, mobile apps, etc.)
     if (!origin) return callback(null, true);
-    
-    // Allow localhost and ANY vercel.app subdomain permanently
+
+    const allowedOrigins = [
+      'http://localhost:3000',
+      'http://localhost:5173',
+      'https://dubeycreation.in',
+      'https://www.dubeycreation.in'
+    ];
+
+    // Allow all Vercel preview deployments
     if (
-      origin.includes('localhost') ||
-      origin.endsWith('.vercel.app')
+      origin.endsWith('.vercel.app') ||
+      allowedOrigins.includes(origin)
     ) {
       return callback(null, true);
     }
-    
-    return callback(new Error('Not allowed by CORS'), false);
+
+    console.log('Blocked by CORS:', origin);
+    return callback(new Error('Not allowed by CORS'));
   },
+
   credentials: true,
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
   allowedHeaders: ['Content-Type', 'Authorization']
 }));
+
+
+// Before Domain Nameserver
+// app.use(cors({
+//   origin: function(origin, callback) {
+//     if (!origin) return callback(null, true);
+    
+//     // Allow localhost and ANY vercel.app subdomain permanently
+//     if (
+//       origin.includes('localhost') ||
+//       origin.endsWith('.vercel.app')
+//     ) {
+//       return callback(null, true);
+//     }
+    
+//     return callback(new Error('Not allowed by CORS'), false);
+//   },
+//   credentials: true,
+//   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+//   allowedHeaders: ['Content-Type', 'Authorization']
+// }));
 
 
 // Replace your current CORS setup with this:
