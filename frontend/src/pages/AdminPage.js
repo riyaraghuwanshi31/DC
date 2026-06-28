@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { getProducts, createProduct, deleteProduct } from '../utils/api';
+import { getProducts, createProduct, deleteProduct, updateProduct } from '../utils/api';
 import toast from 'react-hot-toast';
 
 // const CATEGORIES = ['TVs', 'Earbuds', 'Batteries', 'Laptops', 'Smartwatches', 'Accessories'];
@@ -17,6 +17,7 @@ const AdminPage = () => {
   const [form, setForm] = useState(emptyForm);
   const [submitting, setSubmitting] = useState(false);
   const [filter, setFilter] = useState('All');
+  const [editingProduct, setEditingProduct] = useState(null);
 
   const fetchProducts = async () => {
     setLoading(true);
@@ -46,23 +47,69 @@ const AdminPage = () => {
     }
     setSubmitting(true);
     try {
-      await createProduct({
+      const productData = {
         ...form,
         price: Number(form.price),
-        originalPrice: form.originalPrice ? Number(form.originalPrice) : undefined,
+        originalPrice: form.originalPrice
+          ? Number(form.originalPrice)
+          : undefined,
         stock: Number(form.stock),
-      });
-      toast.success('Product added successfully!', {
-        style: { background: '#1e293b', color: '#f1f5f9', border: '1px solid #334155' },
-      });
-      setForm(emptyForm);
+      };
+
+      if (editingProduct) {
+        await updateProduct(editingProduct._id, productData);
+
+        toast.success("Product updated successfully!", {
+          style: {
+            background: "#1e293b",
+            color: "#f1f5f9",
+            border: "1px solid #334155",
+          },
+        });
+      } else {
+        await createProduct(productData);
+
+        toast.success("Product added successfully!", {
+          style: {
+            background: "#1e293b",
+            color: "#f1f5f9",
+            border: "1px solid #334155",
+          },
+        });
+      }
       setShowForm(false);
+      setForm(emptyForm);
+      setEditingProduct(null);
       fetchProducts();
     } catch (err) {
       toast.error(err.response?.data?.message || 'Failed to add product');
     } finally {
       setSubmitting(false);
     }
+  };
+
+  const handleEdit = (product) => {
+    setEditingProduct(product);
+
+    setForm({
+      name: product.name,
+      description: product.description,
+      price: product.price,
+      originalPrice: product.originalPrice || "",
+      category: product.category,
+      brand: product.brand,
+      image: product.image,
+      stock: product.stock,
+      isFeatured: product.isFeatured,
+      isNew: product.isNew,
+    });
+
+    setShowForm(true);
+
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
   };
 
   const handleDelete = async (id, name) => {
@@ -94,7 +141,9 @@ const AdminPage = () => {
         {/* Add Product Form */}
         {showForm && (
           <div className="card p-6 mb-8 animate-slide-up border-primary-500/30">
-            <h2 className="font-display text-xl font-bold text-light-900 mb-6">Add New Product</h2>
+            <h2 className="font-display text-xl font-bold text-light-900 mb-6"> {editingProduct
+              ? "Edit Product"
+              : "Add New Product"}</h2>
             <form onSubmit={handleSubmit} className="grid grid-cols-1 sm:grid-cols-2 gap-4">
 
               <div className="sm:col-span-2">
@@ -151,11 +200,49 @@ const AdminPage = () => {
               </div>
 
               <div className="sm:col-span-2 flex justify-end gap-3 pt-2">
-                <button type="button" onClick={() => { setShowForm(false); setForm(emptyForm); }} className="btn-secondary">Cancel</button>
-                <button type="submit" disabled={submitting} className="btn-primary min-w-[140px] flex items-center justify-center gap-2">
+                <button
+                  type="button"
+                  onClick={() => {
+                    setShowForm(false);
+                    setForm(emptyForm);
+                    setEditingProduct(null);
+                  }}
+                  className="btn-secondary"
+                >
+                  Cancel
+                </button>
+                <button
+                  type="submit"
+                  disabled={submitting}
+                  className="btn-primary min-w-[140px] flex items-center justify-center gap-2"
+                >
                   {submitting ? (
-                    <><svg className="animate-spin w-4 h-4" fill="none" viewBox="0 0 24 24"><circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"/><path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z"/></svg>Saving...</>
-                  ) : 'Add Product'}
+                    <>
+                      <svg
+                        className="animate-spin w-4 h-4"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                      >
+                        <circle
+                          className="opacity-25"
+                          cx="12"
+                          cy="12"
+                          r="10"
+                          stroke="currentColor"
+                          strokeWidth="4"
+                        />
+                        <path
+                          className="opacity-75"
+                          fill="currentColor"
+                          d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z"
+                        />
+                      </svg>
+
+                      {editingProduct ? "Updating..." : "Saving..."}
+                    </>
+                  ) : (
+                    editingProduct ? "Update Product" : "Add Product"
+                  )}
                 </button>
               </div>
             </form>
@@ -166,9 +253,8 @@ const AdminPage = () => {
         <div className="flex flex-wrap gap-2 mb-6">
           {['All', ...CATEGORIES].map((cat) => (
             <button key={cat} onClick={() => setFilter(cat)}
-              className={`px-4 py-2 rounded-xl text-sm font-medium transition-all ${
-                filter === cat ? 'bg-primary-500 text-light-900' : 'bg-white text-dark-300 hover:text-light-900 border border-light-300'
-              }`}>
+              className={`px-4 py-2 rounded-xl text-sm font-medium transition-all ${filter === cat ? 'bg-primary-500 text-light-900' : 'bg-white text-dark-300 hover:text-light-900 border border-light-300'
+                }`}>
               {cat}
             </button>
           ))}
@@ -224,12 +310,30 @@ const AdminPage = () => {
                         </div>
                       </td>
                       <td className="px-5 py-4 text-right">
-                        <button onClick={() => handleDelete(product._id, product.name)}
-                          className="text-dark-500 hover:text-red-400 transition-colors p-1.5 rounded-lg hover:bg-red-500/10">
-                          <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
-                          </svg>
-                        </button>
+                        <div className="flex justify-end gap-3">
+
+                          <button
+                            onClick={() => handleEdit(product)}
+                            className="text-blue-500 hover:text-blue-400 transition-colors"
+                          >
+                            ✏️
+                          </button>
+
+                          <button
+                            onClick={() => handleDelete(product._id, product.name)}
+                            className="text-dark-500 hover:text-red-400 transition-colors p-1.5 rounded-lg hover:bg-red-500/10"
+                          >
+                            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                              <path
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                                strokeWidth={2}
+                                d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"
+                              />
+                            </svg>
+                          </button>
+
+                        </div>
                       </td>
                     </tr>
                   ))}
