@@ -329,20 +329,18 @@ async function createAdmin() {
 
   
   try {
-    const existingAdmin = await User.findOne({ email: "Dubeycreations02@gmail.com" });
-    // const existingAdmin = await User.findOne({ email: "Dubeycreations02@gmail.com" });
+    const existingAdmin = await User.findOne({ email: "Dubeycreations002@gmail.com" });
 
     if (existingAdmin) {
       console.log('⚠️ Admin already exists');
       return;
     }
 
-    const hashedPassword = await bcrypt.hash("MacDCPass@0702", 10);
-    // const hashedPassword = await bcrypt.hash("MacDC702", 10);
+    const hashedPassword = await bcrypt.hash("Mak@214", 10);
 
     await User.create({
       name: "Admin",
-      email: "Dubeycreations02@gmail.com",
+      email: "Dubeycreations002@gmail.com",
       password: hashedPassword,
       role: "admin",
     });
